@@ -5,4 +5,6 @@ export default interface ItemCardapioOutput {
   preco: number;
   fotoUrl: string;
   idRestaurante: number;
+  restauranteOutput: RestauranteOutput;
+
 }
