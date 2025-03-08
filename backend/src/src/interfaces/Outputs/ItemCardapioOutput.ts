@@ -6,5 +6,4 @@ export default interface ItemCardapioOutput {
   fotoUrl: string;
   idRestaurante: number;
   restauranteOutput: RestauranteOutput;
-
 }
