@@ -3,6 +3,7 @@ import PedidoOutput from "../interfaces/Outputs/PedidoOutput";
 import prisma from "../prisma/prismaClient"; // Certificando que o Prisma está importado
 import userService from "./userService";
 import restauranteService from "./restauranteService";
+import Pedido from "../models/Pedido";
 
 // Função para criar um novo pedido
 async function create(pedidoInput: PedidoInput): Promise<PedidoOutput> {
