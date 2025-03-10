@@ -3,7 +3,7 @@ import ItemPedidoOutput from "../interfaces/Outputs/ItemPedidoOutput";
 import NotFoundError from "../errors/NotFoundError";
 import itemCardapioService from "./itemCardapioService";
 import pedidoService from "./pedidoService";
-import { prisma } from "@prisma/client";
+const prisma = require("../../prisma/prismaClient");
 import ItemPedido from "../models/ItemPedido";
 
 // criar um novo item de pedido

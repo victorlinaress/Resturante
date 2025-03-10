@@ -1,9 +1,9 @@
 import PedidoInput from "../interfaces/Input/PedidoInput";
 import PedidoOutput from "../interfaces/Outputs/PedidoOutput";
-import prisma from "../prisma/prismaClient"; // Certificando que o Prisma está importado
+const prisma = require("../../prisma/prismaClient");
 import userService from "./userService";
-import restauranteService from "./restauranteService";
 import Pedido from "../models/Pedido";
+import restauranteService from "./restauranteService";
 
 // Função para criar um novo pedido
 async function create(pedidoInput: PedidoInput): Promise<PedidoOutput> {
