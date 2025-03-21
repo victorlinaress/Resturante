@@ -3,7 +3,6 @@ import ItemPedidoInput from "../interfaces/Input/ItemPedidoInput";
 import itemPedidoService from "../services/itemPedidoService";
 import ItemPedidoOutput from "../interfaces/Outputs/ItemPedidoOutput";
 import NotFoundError from "../errors/NotFoundError";
-import ItemPedido from "../models/ItemPedido";
 
 async function create(req: Request, res: Response) {
   const itemPedidoInput: ItemPedidoInput = req.body;
@@ -33,7 +32,7 @@ async function getAllForPedido(req: Request, res: Response) {
 
 async function getById(req: Request, res: Response) {
   const { id } = req.params;
-  
+
   try {
     const itemPedido: ItemPedidoOutput = await itemPedidoService.getById(Number(id));
     res.status(200).json(itemPedido);
@@ -46,8 +45,33 @@ async function getById(req: Request, res: Response) {
   }
 }
 
+async function update(req: Request, res: Response) {
+  const { id } = req.params;
+  const itemPedidoInput: ItemPedidoInput = req.body;
+
+  try {
+    const itemPedidoOutput: ItemPedidoOutput = await itemPedidoService.update(Number(id), itemPedidoInput);
+    res.status(200).json(itemPedidoOutput); // Corrigido de 'ItemPedido' para 'itemPedidoOutput'
+  } catch (error) {
+    res.status(500).json({ error: "Erro ao atualizar o pedido", descricao: error });
+  }
+}
+
+async function remove(req: Request, res: Response) {
+  const { id } = req.params;
+
+  try {
+    await itemPedidoService.remove(Number(id));
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ error: "Erro ao deletar item do pedido", descricao: error });
+  }
+}
+
 export default {
   create,
   getAllForPedido,
   getById,
+  update,
+  remove, 
 };
