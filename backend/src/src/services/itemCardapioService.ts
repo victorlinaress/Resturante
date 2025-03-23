@@ -11,7 +11,6 @@ async function create(itemCardapioInput: ItemCardapioInput): Promise<ItemCardapi
         data: itemCardapioInput,
     });
 
-    // Retorna os detalhes formatados
     return {
         id: itemCardapio.id,
         nome: itemCardapio.nome,
